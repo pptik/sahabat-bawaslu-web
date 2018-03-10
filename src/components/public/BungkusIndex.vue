@@ -13,6 +13,8 @@
     import Navigasi from './Navigasi';
     import KontenUtama from './KontenIndex';
 
+
+
     export default {
         name: "index",
         data(){

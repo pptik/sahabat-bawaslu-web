@@ -9,6 +9,7 @@ import Routes from './routes'
 import VueResource from 'vue-resource'
 
 
+
 //Import CSS dan JS
 import 'jquery/dist/jquery.min.js'
 import 'jquery-ui-bundle/jquery-ui.js'
@@ -37,8 +38,20 @@ const router = new VueRouter({
   mode: 'history'
 })
 
+const store = new Vuex.Store({
+  state:{
+    count:100
+  },
+  mutations: {
+    increment(state){
+      state.count++
+    }
+  }
+})
+
 new Vue({
   el: '#app',
+  store,
   render: h => h(App),
   router: router
 })

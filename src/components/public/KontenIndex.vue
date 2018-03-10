@@ -5,7 +5,7 @@
       <!--<p>Sahabat Bawaslu</p>-->
       <form class="ui form">
         <div class="required field">
-          <div>Email</div>
+          <div>Email {{count}}</div>
           <input type="email" placeholder="Tulis email disini" autocomplete="email" v-model="email"/>
         </div>
         <div class="required field">
@@ -31,6 +31,7 @@
 
 <script>
   import global_json from '../../assets/js/globalVariable.json';
+  import {mapState} from 'vuex'
 
   export default {
     name: "konten",
@@ -58,7 +59,10 @@
           }
         });
       }
-    }
+    },
+    computed: mapState({
+      count: state => state.count
+    })
   }
 
 
