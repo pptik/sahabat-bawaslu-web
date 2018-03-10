@@ -1,5 +1,6 @@
 //Import Vue Essential Library
 import Vue from 'vue'
+import Vuex from 'vuex'
 import VueSession from 'vue-session'
 import App from './App.vue'
 import HakCipta from './components/HakCipta'
@@ -26,6 +27,7 @@ import 'moment/moment.js'
 Vue.use(VueRouter);
 Vue.use(VueResource);
 Vue.use(VueSession);
+Vue.use(Vuex);
 
 
 Vue.component('hak-cipta',HakCipta)
