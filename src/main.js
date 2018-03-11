@@ -38,12 +38,9 @@ const router = new VueRouter({
   mode: 'history'
 })
 
-const store = new Vuex.Store({
+/*const store = new Vuex.Store({
   state:{
     count:102
-  },
-  getters:{
-
   },
   mutations: {
     increment(state){
@@ -54,6 +51,50 @@ const store = new Vuex.Store({
     increment(context){
       context.commit('increment')
     }
+  }
+})*/
+
+const userCredentialModul = {
+  state:{
+    field:null,
+    password: null
+  },
+  mutations: {
+    setField(state,field){
+      state.field = field
+    },
+    setPassword(state,password){
+      state.pass = password
+    },
+    setLogin(state){
+      //REST API to Login
+    }
+  },
+  actions:{
+    /*increment(context){
+      context.commit('increment')
+    }*/
+  }
+}
+
+const materialModul = {
+  state:{
+    id:null
+  },
+  mutations: {
+    setId(state,field){
+      state.field = field
+    }
+  },
+  actions:{
+
+  }
+}
+
+const store = new Vuex.Store({
+  modules: {
+    userCredential: userCredentialModul,
+    material: materialModul
   }
 })
 
