@@ -15,7 +15,7 @@
         <div class="required field">
           <button type="button"
                   style="background: linear-gradient(141deg, #2ecc71 10%, #27ae60 51%, #27ae60 75%);color:#FFFFFF;"
-                  v-on:click.prevent="add" class="huge ui button button-submit">Submit</button>
+                  v-on:click.prevent="add_action" class="huge ui button button-submit">Submit</button>
         </div>
       </form>
     </div>
@@ -31,7 +31,7 @@
 
 <script>
   import global_json from '../../assets/js/globalVariable.json';
-  import {mapState,mapMutations} from 'vuex'
+  import {mapState,mapMutations,mapActions} from 'vuex'
 
   export default {
     name: "konten",
@@ -42,7 +42,10 @@
       }
     },
     methods: mapMutations({
-      add: 'increment'
+      add_mutation: 'increment'
+    }),
+    methods: mapActions({
+      add_action: 'increment'
     }),
     computed: mapState({
       count: state => state.count
