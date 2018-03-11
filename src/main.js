@@ -40,7 +40,10 @@ const router = new VueRouter({
 
 const store = new Vuex.Store({
   state:{
-    count:100
+    count:102
+  },
+  getters:{
+
   },
   mutations: {
     increment(state){

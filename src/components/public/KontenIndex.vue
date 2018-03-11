@@ -15,7 +15,7 @@
         <div class="required field">
           <button type="button"
                   style="background: linear-gradient(141deg, #2ecc71 10%, #27ae60 51%, #27ae60 75%);color:#FFFFFF;"
-                  v-on:click.prevent="masuk" class="huge ui button button-submit">Submit</button>
+                  v-on:click.prevent="add" class="huge ui button button-submit">Submit</button>
         </div>
       </form>
     </div>
@@ -31,7 +31,7 @@
 
 <script>
   import global_json from '../../assets/js/globalVariable.json';
-  import {mapState} from 'vuex'
+  import {mapState,mapMutations} from 'vuex'
 
   export default {
     name: "konten",
@@ -41,25 +41,9 @@
         password: ''
       }
     },
-    methods: {
-      masuk:function () {
-        this.$http.post(global_json.general_url+global_json.api.login,{
-          Kode: this.kode,
-          Password: this.password
-        }).then(function (data) {
-          if(data.body.success == true){//Login Succeed
-
-            this.$session.set('sess_id',data.body.sessionid)
-
-            this.$router.push({path:'/home'})
-
-          }else if(data.body.success == false){
-            alert(data.body.message)
-            this.$router.push({path:'/login'})
-          }
-        });
-      }
-    },
+    methods: mapMutations({
+      add: 'increment'
+    }),
     computed: mapState({
       count: state => state.count
     })
