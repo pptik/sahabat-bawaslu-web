@@ -22,17 +22,17 @@
       <div class="metadata">
         <span class="date">{{material.created_at_string}} </span>
       </div>
-      <div v-if="!material.loadmore" class="text">
-{{material.synopsis}}....
-        <br/>
-        <button v-on:click.prevent="readMore(key)" class="astext"><b>Read More...</b></button>
-      </div>
-      <div v-if="material.loadmore" class="text">
-{{material.desc}}
-        <br/>
-        <div v-if="material.type===1" v-for="file,fileKey in material.files" class="ui bulleted list">
-           <a class="item" v-bind:href="file.http_path" target="_blank" >{{file.originalname}}</a>
+        <div v-if="!material.loadmore" class="text">
+          {{material.synopsis}}....
+          <br/>
+          <button v-on:click.prevent="readMore(key)" class="astext"><b>Read More...</b></button>
         </div>
+        <div v-if="material.loadmore" class="text">
+          {{material.desc}}
+          <br/>
+          <div v-if="material.type===1" v-for="file,fileKey in material.files" class="ui bulleted list">
+            <a class="item" v-bind:href="file.http_path" target="_blank" >{{file.originalname}}</a>
+          </div>
         <div v-if="material.type===2" v-for="file,fileKey in material.files" class="ui bulleted list">
            <a class="item" v-bind:href="file.http_path" target="_blank" >{{file.originalname}}</a>
         </div>

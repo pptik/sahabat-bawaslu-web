@@ -135,7 +135,7 @@
 
       },
       kirimMateri(){
-        this.loading=true;
+        //this.loading=true;
         let errorCheck=false;
         this.hasMessage=false;
         this.hasError=false;

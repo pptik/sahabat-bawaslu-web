@@ -26,6 +26,13 @@
       </div>
     </div>
 
+    <div class="ui left pointing dropdown link item">
+      Forum
+      <div class="menu">
+        <div class="item"><router-link to="/admin/forum/list" class="grey-text">List</router-link></div>
+      </div>
+    </div>
+
   </nav>
 </template>
 
