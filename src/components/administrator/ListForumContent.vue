@@ -10,7 +10,18 @@
     <div class="ui positive message" v-if="hasMessage">
           <p>{{messageText}}</p>
     </div>
+    <div class="ui fluid category search" v-on:keyup.enter="searchForum" v-on:keyup.space="searchForum">
+      <div class="ui icon input">
+        <input v-model="searchString" class="prompt" type="text" placeholder="Cari Forum">
+        <i class="search icon"></i>
+      </div>
+    </div>
     <div v-for="forum,key in forumList" class="ui segment comments">
+       <div class="ui bottom right attached label" >
+         <a class="ui label" v-for="tag,key in forum.tags"  v-on:click.prevent="searchByTag(tag,key)">
+           {{tag}}
+         </a>
+       </div>
       <a v-if="forum.status===0" class="ui green ribbon label">Aktif</a>
       <a v-if="forum.status===1" class="ui red ribbon label">Non Aktif</a>
       <h3>{{forum.title}}</h3>
@@ -59,6 +70,7 @@
     name: "konten",
     data(){
       return{
+        searchString:'',
         errorText:'',
         hasError:false,
         loading:false,
@@ -80,6 +92,68 @@
       this.reset();
     },
     methods: {
+      searchByTag(tag,key){
+        this.hasError=false;
+          this.$http.post(restAPI.forumsearchlist,{
+              SearchString:tag
+            },{
+              headers:{
+                access_token:this.$session.get('access_token')
+              },
+            }
+          ).then(function (data) {
+            if(data.body.success === true){
+              let results=data.body.results;
+              if(results.length>0){
+                this.forumList=[];
+                this.forumList=this.forumList.concat(results);
+                console.log(results);
+                this.noMore=true;
+              }else {
+                this.hasError=true;
+                this.errorText="Tidak ditemukan data";
+              }
+            }else if(data.body.success === false){
+              this.hasError=true;
+              this.errorText=data.body.rm;
+            }
+            this.loading=false;
+          });
+
+      },
+      searchForum(){
+        this.hasError=false;
+        console.log(this.searchString)
+        if(this.searchString===""){
+
+        }else {
+          this.$http.post(restAPI.forumsearchlist,{
+              SearchString:this.searchString
+            },{
+              headers:{
+                access_token:this.$session.get('access_token')
+              },
+            }
+          ).then(function (data) {
+            if(data.body.success === true){
+              let results=data.body.results;
+              if(results.length>0){
+                this.forumList=[];
+                this.forumList=this.forumList.concat(results);
+                console.log(results);
+                this.noMore=true;
+              }else {
+                this.hasError=true;
+                this.errorText="Tidak ditemukan data";
+              }
+            }else if(data.body.success === false){
+              this.hasError=true;
+              this.errorText=data.body.rm;
+            }
+            this.loading=false;
+          });
+        }
+      },
       loadQuizzes(){
         this.$http.post(restAPI.forumlist,{
           Skip:this.skip
@@ -91,7 +165,6 @@
         ).then(function (data) {
           if(data.body.success === true){
             let results=data.body.results;
-            console.log(results)
             if(results.length>0){
               this.forumList=this.forumList.concat(results);
               this.reset();

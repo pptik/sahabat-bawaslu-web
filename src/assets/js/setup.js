@@ -28,6 +28,7 @@ const restAPI = {
   aktivasiforum:globalURL+"/forums/aktivasi",
   detailforum:globalURL+"/forums/detail",
   forumanswerlist:globalURL+"/forums/answer/list",
+  forumsearchlist:globalURL+"/forums/list/search",
 };
 
 module.exports={restAPI,globalSetup};

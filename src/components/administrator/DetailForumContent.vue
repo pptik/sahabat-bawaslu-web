@@ -10,6 +10,7 @@
     <div class="ui positive message" v-if="hasMessage">
           <p>{{messageText}}</p>
     </div>
+
      <div class="ui segment comments">
        <div class="ui bottom right attached label" >
          <a class="ui label" v-for="tag,key in tagList">
@@ -51,7 +52,9 @@
         </div>
       </div>
     </div>
-
+    <div class="ui horizontal divider">
+      {{answerList.length}} Jawaban
+    </div>
     <div v-for="answer,key in answerList" class="ui comments">
        <div class="ui divider"></div>
       <div class="comment">
@@ -119,12 +122,10 @@
             </div>
           </div>
         </div>
-
-
-
-
       </div>
     </div>
+    <button v-if="answerList.length>0" :disabled="noMore== true" v-on:click.prevent="loadForums()" class="ui button blue" style="width: 100%"><b>Load More</b></button>
+
   </span>
 </template>
 
@@ -155,6 +156,7 @@
         comment:0,
         tagList:[],
         answerList:[],
+        Skip:0,
       }
     },
 
@@ -201,7 +203,8 @@
       },
       loadAnswers(){
         this.$http.post(restAPI.forumanswerlist,{
-          ForumID:this.ForumID
+          ForumID:this.ForumID,
+          Skip:this.Skip
         },{
             headers:{
               access_token:this.$session.get('access_token')
@@ -212,12 +215,25 @@
           if(data.body.success === true){
             this.reset();
             let results=data.body.results;
-            for(let i=0;i<results.length;i++){
-              results[i].showComment=false;
+            if(results.length>0){
+              for(let i=0;i<results.length;i++){
+                results[i].showComment=false;
 
-              if(results[i].reply.length>0)results[i].hasComment=true;
-              else results[i].hasComment=false;
+                if(results[i].reply.length>0)results[i].hasComment=true;
+                else results[i].hasComment=false;
+              }
+              this.answerList=this.answerList.concat(results);
+              this.reset();
+              this.skip=this.skip+5;
+              if (results.length<5){
+                this.noMore=true;
+              }
+
             }
+            if(results.length===0){
+              this.noMore=true;
+            }
+
 
 
             console.log(results);
