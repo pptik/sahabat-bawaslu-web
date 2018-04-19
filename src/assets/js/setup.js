@@ -1,6 +1,6 @@
 const devUrl="localhost";
 const productionUrl="167.205.7.233";
-const globalURL= "http://"+devUrl+":8183";
+const globalURL= "http://"+productionUrl+":8183";
 const globalSetup = {
     app_id:4501
 };
@@ -8,7 +8,7 @@ const restAPI = {
   signin:globalURL+"/users/signin",
   signup:globalURL+"/users/simple/signup",
   classList:globalURL+"/class/list",
-  uploadFile:"http://167.206.7.233:3077/files/upload/single",
+  uploadFile:"http://"+productionUrl+":3077/files/upload/single",
   createmaerial:globalURL+"/material/create",
   updatematerial:globalURL+"/material/update",
   deletematerial:globalURL+"/material/delete",
