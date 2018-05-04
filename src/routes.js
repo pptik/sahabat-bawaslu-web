@@ -9,6 +9,8 @@ import AdminCreateQuiz from './components/administrator/CreateQuizTemplate.vue';
 import AdminDetailQuiz from './components/administrator/DetailQuizTemplate.vue';
 import AdminMaterialList from './components/administrator/ListMaterialTemplate.vue';
 import TestMap from './components/administrator/TestMapTemplate.vue';
+import AdminReport from './components/administrator/ReportTemplate.vue';
+import AdminReportUserList from './components/administrator/ReportUserListTemplate.vue';
 import AdminQuizList from './components/administrator/ListQuizTemplate.vue';
 import AdminForumList from './components/administrator/ListForumTemplate.vue';
 import AdminForumDetail from './components/administrator/DetailForumTemplate.vue';
@@ -32,6 +34,8 @@ export default
   {path:'/admin/forum/list',component: AdminForumList},
   {path:'/admin/forum/detail/:ForumID',component: AdminForumDetail,props:true},
   {path:'/admin/video',component: AdminVideo},
+  {path:'/admin/report',component: AdminReport},
+  {path:'/admin/report/user/list',component: AdminReportUserList},
   {path:'/test/map',component: TestMap}
 
 ]

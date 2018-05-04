@@ -32,6 +32,9 @@
         <div class="item"><router-link to="/admin/forum/list" class="grey-text">List</router-link></div>
       </div>
     </div>
+    <router-link to="/admin/report" class="ui left pointing dropdown link item">
+      Report
+    </router-link>
 
   </nav>
 </template>

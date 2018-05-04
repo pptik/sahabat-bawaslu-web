@@ -31,6 +31,14 @@ const restAPI = {
   detailforum:globalURL+"/forums/detail",
   forumanswerlist:globalURL+"/forums/answer/list",
   forumsearchlist:globalURL+"/forums/list/search",
+  reportuseralltime:globalURL+"/reports/users/alltime",
+  reportuseryearly:globalURL+"/reports/users/yearly",
+  reportusermonthly:globalURL+"/reports/users/monthly",
+  reportuseractivityalltime:globalURL+"/reports/users/activity/alltime",
+  reportuseractivityyearly:globalURL+"/reports/users/activity/yearly",
+  reportuseractivitymonthly:globalURL+"/reports/users/activity/monthly",
+  reportuserleaderlist:globalURL+"/reports/users/leader/list",
+  reportuserrelawanlist:globalURL+"/reports/users/relawan/list",
 };
 
 module.exports={restAPI,globalSetup};
