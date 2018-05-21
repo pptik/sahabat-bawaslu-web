@@ -126,7 +126,7 @@
           this.yearlyUsersData=response.body.results.map(result=>result.count);
           this.yearlyUsersLabel=response.body.results.map(result=>result._id);
           this.yearlyUsersBackgroundColor=response.body.results.map(result=>result.backgroundColor);
-          this.yearlyUsersTitle="Jumlah User Pertahun";
+          this.yearlyUsersTitle="Jumlah User";
           this.yearlyUsersLoaded=true
         }) .catch(err => {
 
@@ -139,7 +139,7 @@
           }
         ).then(function (response) {
           let data={};
-          data.label="Jumlah User Perbulan";
+          data.label="Jumlah User";
           data.data=response.body.results.map(result=>result.count);
           data.borderColor= '#249EBF';
           data.pointBackgroundColor= 'white';

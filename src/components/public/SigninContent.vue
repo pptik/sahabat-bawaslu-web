@@ -59,19 +59,21 @@ const {globalSetup}=require('../../assets/js/setup');
         ).then(function (data) {
           if(data.body.success === true){
             let results=data.body.results;
-            this.$session.set('access_token',results.access_token);
-            this.$session.set('username',results.username);
-            this.$session.set('name',results.name);
-            this.$session.set('role',results.role);
-            this.$session.set('email',results.email);
-            this.$session.set('phone_number',results.phone_number);
-            this.$session.set('UserData',results);
             switch (results.role){
               case 0:
+                this.$session.set('access_token',results.access_token);
+                this.$session.set('username',results.username);
+                this.$session.set('name',results.name);
+                this.$session.set('role',results.role);
+                this.$session.set('email',results.email);
+                this.$session.set('phone_number',results.phone_number);
+                this.$session.set('UserData',results);
                 this.$router.push({path:'/admin/home'});
                 break;
 
               case 1:
+                this.errorText='Gagal Login, Bukan Admin';
+                this.hasError=true;
                 break;
 
             }

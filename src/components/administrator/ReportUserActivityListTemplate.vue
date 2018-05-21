@@ -15,7 +15,7 @@
     import '../../assets/js/slick.min.js'
     import Navigation from './Navigation.vue';
     import LeftNavigation from './ReportLeftNavigation.vue';
-    import MainContent from './ReportUserListContent.vue';
+    import MainContent from './ReportUserActivityListContent.vue';
 
     import global_json from '../../assets/js/globalVariable.json';
 

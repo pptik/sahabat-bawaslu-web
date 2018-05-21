@@ -11,6 +11,7 @@ import AdminMaterialList from './components/administrator/ListMaterialTemplate.v
 import TestMap from './components/administrator/TestMapTemplate.vue';
 import AdminReport from './components/administrator/ReportTemplate.vue';
 import AdminReportUserList from './components/administrator/ReportUserListTemplate.vue';
+import AdminReportUserActivityList from './components/administrator/ReportUserActivityListTemplate.vue';
 import AdminQuizList from './components/administrator/ListQuizTemplate.vue';
 import AdminForumList from './components/administrator/ListForumTemplate.vue';
 import AdminForumDetail from './components/administrator/DetailForumTemplate.vue';
@@ -36,6 +37,7 @@ export default
   {path:'/admin/video',component: AdminVideo},
   {path:'/admin/report',component: AdminReport},
   {path:'/admin/report/user/list',component: AdminReportUserList},
+  {path:'/admin/report/user/activity/list',component: AdminReportUserActivityList},
   {path:'/test/map',component: TestMap}
 
 ]

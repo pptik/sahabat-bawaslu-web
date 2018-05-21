@@ -39,6 +39,8 @@ const restAPI = {
   reportuseractivitymonthly:globalURL+"/reports/users/activity/monthly",
   reportuserleaderlist:globalURL+"/reports/users/leader/list",
   reportuserrelawanlist:globalURL+"/reports/users/relawan/list",
+  reportusersearchlist:globalURL+"/reports/users/search/list",
+  reportuseractivitysearchlist:globalURL+"/reports/activity/search/list",
 };
 
 module.exports={restAPI,globalSetup};

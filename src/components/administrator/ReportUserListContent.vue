@@ -1,5 +1,20 @@
 <template>
   <div class="ui container" >
+    <div v-if="loading" class="ui active inverted dimmer">
+      <div class="ui text loader">Loading</div>
+    </div>
+    <div class="ui negative message" v-if="hasError">
+      <p>{{errorText}}</p>
+    </div>
+    <div class="ui positive message" v-if="hasMessage">
+      <p>{{messageText}}</p>
+    </div>
+    <div class="ui fluid category search" v-on:keyup.enter="searchUser" v-on:keyup.space="searchUser">
+      <div class="ui icon input">
+        <input v-model="searchString" class="prompt" type="text" placeholder="Cari User">
+        <i class="search icon"></i>
+      </div>
+    </div>
     <div class="ui" style="margin-left: 15px">
       <label>Leader</label>
       <table class="ui celled padded table">
@@ -95,7 +110,13 @@
     data(){
       return{
         leaderList:[],
-        relawanList:[]
+        relawanList:[],
+        searchString:'',
+        errorText:'',
+        hasError:false,
+        loading:false,
+        hasMessage:false,
+        messageText:'',
       }
     },
     mounted () {
@@ -111,7 +132,7 @@
           }
         ).then(function (response) {
           this.leaderList=response.body.results;
-          console.log(response.body)
+
         }) .catch(err => {
 
         });
@@ -123,17 +144,40 @@
           }
         ).then(function (response) {
           this.relawanList=response.body.results;
-          console.log(response.body)
+
         }) .catch(err => {
 
         });
       },
-      sort:function(s) {
-        //if s == current sort, reverse
-        if(s === this.currentSort) {
-          this.currentSortDir = this.currentSortDir==='asc'?'desc':'asc';
+      searchUser(){
+        this.hasError=false;
+        if(this.searchString===""){
+          this.loadData();
+        }else {
+          this.$http.post(restAPI.reportusersearchlist,{
+              SearchString:this.searchString
+            },{
+              headers:{
+                access_token:this.$session.get('access_token')
+              },
+            }
+          ).then(function (data) {
+            if(data.body.success === true){
+              let results=data.body.results;
+              if(results.length>0){
+                this.leaderList=data.body.leaderlist;
+                this.relawanList=data.body.relawanlist;
+              }else {
+                this.hasError=true;
+                this.errorText="Tidak ditemukan data";
+              }
+            }else if(data.body.success === false){
+              this.hasError=true;
+              this.errorText=data.body.rm;
+            }
+            this.loading=false;
+          });
         }
-        this.currentSort = s;
       }
     },
 

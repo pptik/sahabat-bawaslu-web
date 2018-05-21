@@ -12,6 +12,12 @@
         <div class="item">List</div>
       </router-link>
     </div>
+    <div class="ui left pointing dropdown link item">
+      <i class="book icon"></i>
+      <router-link to="/admin/report/user/activity/list" class="menu">
+        <div class="item">List</div>
+      </router-link>
+    </div>
   </nav>
 </template>
 
