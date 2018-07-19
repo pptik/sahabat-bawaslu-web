@@ -140,7 +140,6 @@
               if(results.length>0){
                 this.forumList=[];
                 this.forumList=this.forumList.concat(results);
-                console.log(results);
                 this.noMore=true;
               }else {
                 this.hasError=true;
@@ -155,7 +154,7 @@
         }
       },
       loadQuizzes(){
-        this.$http.post(restAPI.forumlist,{
+        this.$http.post(restAPI.forumlistforadmin,{
           Skip:this.skip
         },{
             headers:{
@@ -166,9 +165,11 @@
           if(data.body.success === true){
             let results=data.body.results;
             if(results.length>0){
+              this.forumList=[];
               this.forumList=this.forumList.concat(results);
               this.reset();
               this.skip=this.skip+5;
+              console.log(this.forumList);
               if (results.length<5){
                 this.noMore=true;
               }

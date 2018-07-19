@@ -16,7 +16,7 @@
     export default {
       name: "index",
       created () {
-        document.title = 'Sahabat Bawaslu | Masuk';
+        document.title = 'Bawaslu Relawan Activity | Masuk';
       },
       data(){
           return{

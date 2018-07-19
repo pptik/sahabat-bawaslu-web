@@ -26,6 +26,7 @@ const restAPI = {
   allquizlist:globalURL+"/quizzes/all/list",
   allforumlist:globalURL+"/forums/all/list",
   forumlist:globalURL+"/forums/list",
+  forumlistforadmin:globalURL+"/forums/list/foradmin",
   deaktivasiforum:globalURL+"/forums/deaktivasi",
   aktivasiforum:globalURL+"/forums/aktivasi",
   detailforum:globalURL+"/forums/detail",
@@ -41,6 +42,7 @@ const restAPI = {
   reportuserrelawanlist:globalURL+"/reports/users/relawan/list",
   reportusersearchlist:globalURL+"/reports/users/search/list",
   reportuseractivitysearchlist:globalURL+"/reports/activity/search/list",
+  addleader:globalURL+"/users/register/leader",
 };
 
 module.exports={restAPI,globalSetup};

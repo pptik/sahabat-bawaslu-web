@@ -14,7 +14,6 @@
               {{ error }}
             </li>
           </ul>
-
         </div>
         <div class="field">
           <div>Email</div>

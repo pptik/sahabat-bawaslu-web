@@ -1,7 +1,7 @@
 <template>
   <nav class="ui fixed menu">
     <router-link to="/" class="item">
-      <span v-bind:class="{primarytext:highlight1}">Sahabat Bawaslu</span>
+      <span v-bind:class="{primarytext:highlight1}">Bawaslu Relawan Activity</span>
     </router-link>
     <div class="right menu">
       <router-link to="/signup" class="item">

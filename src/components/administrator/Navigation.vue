@@ -4,6 +4,12 @@
       <span v-bind:class="{primarytext:highlight1}">Sahabat Banwaslu</span>
     </router-link>
     <div class="right menu">
+      <a href="/admin/user/addleader" class="item grey-text">
+        <aside>
+          <router-link to="/admin/user/addleader" class="grey-text">Add Leader</router-link>
+        </aside>
+      </a>
+
       <a href="#" v-on:click.prevent="keluar" class="item grey-text">
         <aside>
           <span v-bind:class="{primarytext:highlight2}">Logout</span>

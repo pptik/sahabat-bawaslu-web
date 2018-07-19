@@ -14,7 +14,7 @@
   export default {
     name: "index",
     created () {
-      document.title = 'Sahabat Bawaslu | NOT FOUND';
+      document.title = 'Bawaslu Relawan Activity | NOT FOUND';
     },
     data(){
       return{
