@@ -14,6 +14,7 @@
       Berita
 
       <div class="menu">
+        <div class="item"><router-link to="/admin/news/list" class="grey-text">List</router-link></div>
         <div class="item"><router-link to="/admin/create/news" class="grey-text">Tambah Berita</router-link></div>
       </div>
     </div>

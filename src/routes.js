@@ -15,6 +15,7 @@ import AdminReportUserList from './components/administrator/ReportUserListTempla
 import AdminReportUserActivityList from './components/administrator/ReportUserActivityListTemplate.vue';
 import AdminQuizList from './components/administrator/ListQuizTemplate.vue';
 import AdminForumList from './components/administrator/ListForumTemplate.vue';
+import AdminNewsList from './components/administrator/ListNewsTemplate.vue';
 import AdminForumDetail from './components/administrator/DetailForumTemplate.vue';
 import PublicSignin from './components/public/SigninTemplate.vue';
 import PublicSignup from './components/public/SignupTemplate.vue';
@@ -35,6 +36,7 @@ export default
   {path:'/admin/create/news',component: AdminCreateNews},
   {path:'/admin/create/quiz',component: AdminCreateQuiz},
   {path:'/admin/forum/list',component: AdminForumList},
+  {path:'/admin/news/list',component: AdminNewsList},
   {path:'/admin/forum/detail/:ForumID',component: AdminForumDetail,props:true},
   {path:'/admin/video',component: AdminVideo},
   {path:'/admin/report',component: AdminReport},
