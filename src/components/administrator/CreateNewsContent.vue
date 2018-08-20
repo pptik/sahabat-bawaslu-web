@@ -11,6 +11,20 @@
           <p>{{messageText}}</p>
     </div>
     <form class="ui form">
+      <div class="ui checkbox">
+      <input type="checkbox" id="checkbox" v-model="isChallenge">
+      <label for="checkbox">Check bila challenge</label>
+     </div>
+    <div id="challenge" class="field" style="display: none">    
+     <div class="field">
+       <label>Poin Challenge</label>
+       <input type="text" placeholder="Poin Challenge" v-model="poin"/>
+     </div>
+     <div class="field">
+       <label>Kadaluarsa Challenge</label>
+       <input type="text" id="datepicker" placeholder="Expire" v-model="expire" name="expire" />
+     </div>
+    </div>
     <div class="field">
           <div>Judul</div>
           <input type="text" autocomplete="title" placeholder="Tulis Judul" v-model="title"/>
@@ -28,20 +42,7 @@
        <label>Hashtag</label>
        <input type="text" placeholder="Hashtag pisahkan dengan koma tanpa #" v-model="hashtag"/>
      </div>
-     <div class="ui checkbox">
-      <input type="checkbox" id="checkbox" v-model="isChallenge">
-      <label for="checkbox">Check bila challenge</label>
-     </div>
-    <div id="challenge" class="field" style="display: none">    
-     <div class="field">
-       <label>Poin Challenge</label>
-       <input type="text" placeholder="Poin Challenge" v-model="poin"/>
-     </div>
-     <div class="field">
-       <label>Kadaluarsa Challenge</label>
-       <input type="text" id="datepicker" placeholder="Expire" v-model="expire" name="expire" />
-     </div>
-    </div>
+     
       <div class="container">
           <button v-on:click.prevent="kirimNews" type="button" class="small ui blue button">Submit</button>
         </div>

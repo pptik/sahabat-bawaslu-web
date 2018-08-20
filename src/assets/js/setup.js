@@ -1,6 +1,6 @@
 const devUrl="localhost";
 const productionUrl="167.205.7.233";
-const globalURL= "http://"+devUrl+":8183";
+const globalURL= "http://"+productionUrl+":8183";
 const globalSetup = {
     app_id:4501
 };
